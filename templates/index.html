@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi Wardriving Heatmap</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📡 WiFi Wardriving Heatmap</h1>
+            <div class="controls">
+                <select id="viewMode">
+                    <option value="heatmap">🔥 Heatmap</option>
+                    <option value="markers">📍 Markers</option>
+                    <option value="clusters">🎯 Clusters</option>
+                </select>
+                
+                <div class="filter-group">
+                    <label>Signal Strength:</label>
+                    <input type="range" id="signalFilter" min="-100" max="0" value="-100" title="Min Signal Strength">
+                    <span id="signalLabel">All Signals</span>
+                </div>
+                
+                <input type="text" id="ssidFilter" placeholder="Filter SSID..." class="filter-input">
+                
+                <button id="refreshBtn">🔄 Refresh</button>
+                <button id="exportBtn">📥 Export</button>
+            </div>
+        </header>
+        
+        <div id="map"></div>
+        
+        <div id="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-label">Total Networks:</span>
+                    <span class="stat-value" id="totalNetworks">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Avg Signal:</span>
+                    <span class="stat-value" id="avgSignal">0</span> dBm
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Strongest:</span>
+                    <span class="stat-value" id="strongestSignal">0</span> dBm
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Top SSID:</span>
+                    <span class="stat-value" id="topSSID">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Data Points:</span>
+                    <span class="stat-value" id="dataPoints">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
