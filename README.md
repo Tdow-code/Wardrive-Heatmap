@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Wardriving Heatmap Application
 
 This project is a heatmap application designed to log and visualize wardriving data using a SQLite database. The application captures Wi-Fi scan data, including SSID, signal strength, and GPS coordinates, and generates heatmaps based on this data.
@@ -59,3 +60,6 @@ Contributions are welcome! Please feel free to submit a pull request or open an 
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
+=======
+# Wardrive-Heatmap
+>>>>>>> 91e2f13fbeaf71cf39d61d3ecd8de802a6eb077d
